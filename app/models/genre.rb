@@ -1,4 +1,5 @@
 class Genre < ActiveHash::Base
+  self.data = [
    { id: 1, name: '--' },
    { id: 2, name: '知識' },
    { id: 3, name: 'アセスメント' },
@@ -9,7 +10,7 @@ class Genre < ActiveHash::Base
    { id: 8, name: '医者向け' },
    { id: 9, name: '医療関連ニュース' },
    { id: 10, name: 'その他' }
-  
+  ]
   include ActiveHash::Associations
   has_many :questions
   
