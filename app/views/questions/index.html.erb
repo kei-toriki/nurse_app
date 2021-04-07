@@ -6,6 +6,13 @@
   <div class="header-list">
   <% if user_signed_in? %>
     <div class="logout">
+      <%= link_to root_path do %>
+        <% if current_user.image.attached? %>
+          <%= image_tag current_user.image.variant(resize: '50x50'), class: 'user-image' %>
+        <% else %>
+          <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
+        <% end %>
+      <% end %>
       <%= link_to current_user.nickname, root_path, class: "post" %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"post" %>
     </div>
@@ -24,25 +31,34 @@
   <div class="new-question">
     <%= link_to "質問はこちらから", new_question_path, class: "newq" %>
   </div>
-
-  <div class='question-contents'>
-      <h2 class='title'>最近の質問</h2>
-      <ul class='question-lists'>
-        <% @questions.each do |question| %>
-          <li class='list'>
-            <div class='question-info'>
-              <h3 class='question-title'>
-                <%= "タイトル-#{question.title}" %>
-              </h3>
-              <h3 class="question-genre">
-                <%= "ジャンル-#{question.genre.name}" %>
-              </h3>
-              <h3 class="question-text">
-                <%= "内容-#{question.explanation}".truncate(30) %>
-              </h3>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+  <div class="inner">
+    <div class='question-contents'>
+        <h2 class='title'>最近の質問</h2>
+        <ul class='question-lists'>
+          <% @questions.each do |question| %>
+            <li class='list'>
+              <%# <div class='question-info'>  %>
+              <%= link_to question_path(question.id), class:"question-info" do %> 
+                <h3 class='question-title'>
+                  <%= "質問-#{question.title}" %>
+                </h3>
+                <h3 class="question-genre">
+                  <%= "ジャンル-#{question.genre.name}" %>
+                </h3>
+                <h3 class="question-text">
+                  <%= "内容-#{question.explanation}".truncate(30) %>
+                </h3>
+                <% end %>
+                <div class="question__detail2">
+                  <div class="detail__title2">投稿日時</div>
+                  <div class="detail__message3">
+                    <%= l question.created_at %>
+                  </div>
+                </div>
+              <% end %>
+              <%# </div> %>
+            </li>
+        </ul>
+    </div>
   </div>  
 </main>
