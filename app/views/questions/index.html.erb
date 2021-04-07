@@ -30,9 +30,10 @@
       <ul class='question-lists'>
         <% @questions.each do |question| %>
           <li class='list'>
-            <div class='question-info'>
+            <%# <div class='question-info'>  %>
+            <%= link_to question_path(question.id), class:"question-info" do %> 
               <h3 class='question-title'>
-                <%= "タイトル-#{question.title}" %>
+                <%= "質問-#{question.title}" %>
               </h3>
               <h3 class="question-genre">
                 <%= "ジャンル-#{question.genre.name}" %>
@@ -40,7 +41,8 @@
               <h3 class="question-text">
                 <%= "内容-#{question.explanation}".truncate(30) %>
               </h3>
-            </div>
+            <% end %>
+            <%# </div> %>
           </li>
         <% end %>
       </ul>

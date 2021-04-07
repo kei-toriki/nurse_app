@@ -58,9 +58,10 @@
 }
 
 .question-info{
-  border: blue 2px solid;
+  /* border: blue 2px solid; */
   width: 700px;
   margin-bottom: 10px;
+  color:brown
 }
 
 .question-genre{
@@ -69,4 +70,11 @@
 
 .question-text{
   font-size: 20px;
+  border-bottom: cornflowerblue 3px solid;
+  width: 500px;
+}
+
+.question-title{
+  border-top: cornflowerblue 3px solid;
+  width: 500px;
 }
