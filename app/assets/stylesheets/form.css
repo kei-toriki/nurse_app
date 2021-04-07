@@ -14,7 +14,6 @@
   padding: 30px;
   height: 500px;
   margin: auto;
-  background-color: blanchedalmond;
 }
 
 .question{
@@ -25,4 +24,5 @@
 
 .field{
   margin-top: 20px;
+  /* background-color: azure; */
 }

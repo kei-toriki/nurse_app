@@ -1,38 +1,47 @@
-<h1>看護師ならではの悩みを共有していこう！</h1>
-
-<% if user_signed_in? %>
-  <div class="user_nav grid-6">
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<header>
+ <div class="header-flame">
+  <div class="header-logo">
+  ナースの質問部屋
   </div>
-<% else %>
-  <div class="grid-6">
-    <%= link_to "ログイン", new_user_session_path, class: "post" %>
-    <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+  <div class="header-list">
+  <% if user_signed_in? %>
+    <div class="logout">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"post" %>
+    </div>
+  <% else %>
+    <div class="login">
+      <%= link_to "ログイン", new_user_session_path, class: "post" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+    </div>
+  <% end %>
   </div>
-<% end %>
+ </div>
+</header>
 
-<div class="new-question">
-  <%= link_to "質問しよう", new_question_path, class: "newq" %>
-</div>
+<main class="qindex">
+  <h2 class="info">ナースならではの悩みを共有しよう</h2>
+  <div class="new-question">
+    <%= link_to "質問はこちらから", new_question_path, class: "newq" %>
+  </div>
 
-<div class='question-contents'>
-    <h2 class='title'>最近の質問</h2>
-    <ul class='question-lists'>
-      <% @questions.each do |question| %>
-        <li class='list'>
-          <div class='question-info'>
-            <h3 class='question-title'>
-              <%= "タイトル-#{question.title}" %>
-            </h3>
-            <h3>
-              <%= "ジャンル-#{question.genre.name}" %>
-            </h3>
-            <h3 class="question-text">
-              <%= "#{question.explanation}".truncate(15) %>
-            </h3>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-</div>  
-            
+  <div class='question-contents'>
+      <h2 class='title'>最近の質問</h2>
+      <ul class='question-lists'>
+        <% @questions.each do |question| %>
+          <li class='list'>
+            <div class='question-info'>
+              <h3 class='question-title'>
+                <%= "タイトル-#{question.title}" %>
+              </h3>
+              <h3 class="question-genre">
+                <%= "ジャンル-#{question.genre.name}" %>
+              </h3>
+              <h3 class="question-text">
+                <%= "内容-#{question.explanation}".truncate(30) %>
+              </h3>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+  </div>  
+</main>
