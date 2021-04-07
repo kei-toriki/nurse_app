@@ -1,0 +1,52 @@
+.inner{
+  padding: 0 30px;
+}
+
+.question__hedding{
+  color: brown;
+  font-size: 50px;
+}
+
+.question__name{
+  font-size: 20px;
+  
+}
+
+.question__name{
+  display: flex;
+}
+
+.detail__names{
+  
+  color: brown;
+}
+
+.question__detail{
+  display: flex;
+}
+
+.detail__message{
+  padding-left: 20px;
+  color: brown;
+}
+
+.question__detail2{
+  text-align: right;
+  color: burlywood;
+}
+
+.question__wrapper{
+  border-bottom: black 2px solid;
+}
+
+.question__name{
+  display: flex;
+}
+
+.user-image{
+  border-radius: 50%;
+  object-fit:cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px 0 20px;
+}

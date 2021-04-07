@@ -7,8 +7,8 @@
 .header-logo{
   float: left;
   font-size: 24px;
-  margin-right: 380px;
   color: aqua;
+  padding-left: 10px;
 }
 
 .post{
@@ -19,6 +19,8 @@
 .header-list{
   font-size: 15px;
   margin-right: 40px;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .info{
@@ -41,6 +43,9 @@
 
 .list{
   list-style: none;
+  border-top: cornflowerblue 3px solid ;
+  border-bottom: cornflowerblue 3px solid;
+  margin-bottom: 20px;
 }
 
 .question-text{
@@ -59,7 +64,7 @@
 
 .question-info{
   /* border: blue 2px solid; */
-  width: 700px;
+  width: 100%;
   margin-bottom: 10px;
   color:brown
 }
@@ -70,11 +75,9 @@
 
 .question-text{
   font-size: 20px;
-  border-bottom: cornflowerblue 3px solid;
   width: 500px;
 }
 
 .question-title{
-  border-top: cornflowerblue 3px solid;
-  width: 500px;
+  /* border-top: cornflowerblue 3px solid; */
 }
