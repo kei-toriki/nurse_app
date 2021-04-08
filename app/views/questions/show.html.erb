@@ -63,6 +63,11 @@
           <div class="detail__message3">
             <%= l @question.created_at %>
           </div>
+          <div class="edit_show">
+            <% if user_signed_in? && current_user.id == @question.user_id %>
+              <%= link_to "編集する", edit_question_path(@question.id) %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
-  <body class="text-center">
+<body class="text-center">
    
     <main class="form-signin">
-      <h2>質問作成</h2>
+      <h2>質問を編集する</h2>
       <%= form_with(model: @question, local: true) do |f| %>
         <div class="field-genre">
           <%= f.label :ジャンル %>
@@ -17,13 +17,9 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "質問する" %>
+          <%= f.submit "編集内容を送信" %>
         </div>
       <% end %>
       <%= link_to "戻る", root_path %>
     </main>
   </body>
-
-
-    
-
