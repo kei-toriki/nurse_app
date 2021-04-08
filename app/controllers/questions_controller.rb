@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user! , only: [:new ,:create, :edit, :update]
+  before_action :move_to_index, only: [:edit, :update]
+
   def index
     @questions = Question.includes(:user).order('created_at DESC')
   end
@@ -36,6 +39,13 @@ class QuestionsController < ApplicationController
   private
     def question_params
       params.require(:question).permit(:title, :explanation, :genre_id).merge(user_id: current_user.id)
+    end
+
+    def move_to_index
+      @question = Question.find(params[:id])
+      unless @question.user.id == current_user.id
+      redirect_to action: :index
+      end
     end
 
 end

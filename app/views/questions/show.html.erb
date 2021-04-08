@@ -64,7 +64,9 @@
             <%= l @question.created_at %>
           </div>
           <div class="edit_show">
-            <%= link_to "編集する", edit_question_path(@question.id) %>
+            <% if user_signed_in? && current_user.id == @question.user_id %>
+              <%= link_to "編集する", edit_question_path(@question.id) %>
+            <% end %>
           </div>
         </div>
       </div>
