@@ -63,6 +63,9 @@
           <div class="detail__message3">
             <%= l @question.created_at %>
           </div>
+          <div class="edit_show">
+            <%= link_to "編集する", edit_question_path(@question.id) %>
+          </div>
         </div>
       </div>
     </div>

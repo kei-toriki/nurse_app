@@ -54,3 +54,8 @@
 .question__body{
   width: 100%;
 }
+
+.edit_show{
+  text-align: left;
+  color: cyan;
+}
