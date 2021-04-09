@@ -1,0 +1,22 @@
+<body class="text-center">
+   
+    <main class="form-signin">
+      <div class="question__answer">
+          <p class="answer_title">質問内容</p>
+          <p class="answer_message">
+            <%= @question.explanation %>
+          </p>
+      </div>
+      <h2>回答を記入してください</h2>
+      <%= form_with(model: [@question, @answer], local: true) do |f| %>
+        <div class="field">
+          <%= f.text_area :content, class: "question", placeholder: "回答内容"%>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "回答する" %>
+        </div>
+      <% end %>
+      <%= link_to "戻る", root_path %>
+    </main>
+  </body>

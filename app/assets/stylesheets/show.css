@@ -63,3 +63,12 @@
 .delete{
   color: crimson;
 }
+
+.answer_btn{
+  color: black;
+  float: left;
+  font-size: 25px;
+  border: orange 2px solid;
+  margin-top: 10px;
+  background-color: orange;
+}
