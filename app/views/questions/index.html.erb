@@ -36,6 +36,12 @@
     <div class='question-contents'>
         <div class="title-main">
           <h2 class='title'>↓最近の質問↓</h2>
+          <div>
+            <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form") do |form| %>
+              <%= form.text_field :keyword, placeholder: "質問を検索する", class: "search-input" %>
+              <%= form.submit "検索", class: "search-btn" %>
+            <% end %>
+          </div>
         </div>
         <ul class='question-lists'>
           <% @questions.each do |question| %>

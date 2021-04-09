@@ -71,6 +71,8 @@
 .title-main{
   text-align: left;
   margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .question-info{
@@ -96,4 +98,14 @@
 
 .black{
   color: black;
+}
+
+.search-input{
+  border-radius: 10px;
+}
+
+.search-btn{
+  border-radius: 10px;
+  background-color: coral;
+  color: white;
 }
