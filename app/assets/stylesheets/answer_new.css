@@ -1,0 +1,9 @@
+.answer_message{
+  border-bottom: brown 2px solid;
+  text-align: left;
+}
+
+.answer_title{
+  color: brown;
+  font-size: 20px;
+}

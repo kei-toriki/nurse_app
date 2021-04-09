@@ -36,7 +36,7 @@
 }
 
 .question__wrapper{
-  border-bottom: black 2px solid;
+  border-bottom: burlywood 2px solid;
 }
 
 .question__name{
@@ -62,4 +62,52 @@
 
 .delete{
   color: crimson;
+}
+
+.answer_btn{
+  color: black;
+  font-size: 25px;
+  border: orange 2px solid;
+  margin-top: 10px;
+  background-color: orange;
+  border-radius: 10px;
+}
+
+.user-image2{
+  border-radius: 50%;
+  object-fit:cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px 0 0;
+}
+
+.answer-wrpper{
+  margin-top: 20px;
+}
+
+
+
+.answer_center{
+  text-align: center;
+}
+
+.answer_center2{
+  font-size: 25px;
+  color: white;
+  background-color: chocolate;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.answer_info{
+  border: tomato 2px solid;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.answer_date_right{
+  text-align: right;
+  color: burlywood;
 }
