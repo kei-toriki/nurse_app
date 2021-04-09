@@ -38,7 +38,8 @@
 
 .newq{
   font-size: 24px;
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 
 .list{
@@ -46,6 +47,7 @@
   border-top: cornflowerblue 3px solid ;
   border-bottom: cornflowerblue 3px solid;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .question-text{
@@ -57,8 +59,17 @@
 }
 
 .title{
-  border-bottom: black 2px solid;
-  width: 180px;
+  display: inline;
+  background-color: coral;
+  color: white;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 25px;
+}
+
+.title-main{
+  text-align: left;
   margin-left: 10px;
 }
 
@@ -70,14 +81,19 @@
 }
 
 .question-genre{
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .question-text{
-  font-size: 20px;
+  font-size: 19px;
   width: 500px;
+  color: darkslategrey;
 }
 
 .question-title{
   /* border-top: cornflowerblue 3px solid; */
+}
+
+.black{
+  color: black;
 }

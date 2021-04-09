@@ -74,8 +74,42 @@
         </div>
       </div>
     </div>
+    <div class="answer-wrpper">
+      <div class="answer_center">
+        <% unless @answers.length == 0 %>
+          <span class="answer_center2">↓回答一覧↓</h4>
+        <% end %>
+      </div>
+      <% @answers.each do |answer| %>
+        <div class="answer_info">
+        <div class="question__name">
+          <div class="question__image">
+            <% if answer.user.image.attached? %>
+              <%= image_tag answer.user.image.variant(resize: '50x50'), class: 'user-image2'  %>
+            <% else %>
+              <%= image_tag("noimage.png", :size => "50x50", class: 'user-image2') %>
+            <% end %>
+          </div>
+          <p class="detail__names">
+            <%= answer.user.nickname %>
+          </p>
+          <span>さん</span>
+        </div>
+        <div>
+          <%= answer.content %>
+        </div>
+        <div class="answer_date_right">
+          <div class="answer_date">回答日時</div>
+            <div class="answer_date2">
+              <%= l answer.created_at %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>  
   </div>
 </main>
+
 
 
 
