@@ -43,6 +43,11 @@ class QuestionsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @questions = Question.search(params[:keyword])
+    render :index
+  end
+
   private
     def question_params
       params.require(:question).permit(:title, :explanation, :genre_id).merge(user_id: current_user.id)
