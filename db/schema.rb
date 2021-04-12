@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_021727) do
   end
 
   create_table "introductions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "position"
+    t.integer "position_id"
     t.text "description"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
