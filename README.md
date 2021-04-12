@@ -40,3 +40,12 @@
 
 - belongs_to :user
 - belongs_to :question
+
+
+## introduction テーブル
+
+| Column      | Type       | Options                        |
+| -------     | ---------- | ------------------------------ |
+| position    | integer    |                                |
+| description | text       |                                |
+| user        | references | optional: true                 |
