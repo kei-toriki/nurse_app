@@ -1,5 +1,6 @@
 class Introduction < ApplicationRecord
   belongs_to :user, optional: true
+  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :position

@@ -43,8 +43,8 @@
     <%= form_for(@user, url: user_registration_path) do |f| %>
 
       <div class="field">
-        <%= f.label :トップ画像 %>
-        <%= f.file_field :image %>
+        <%= f.label :トップ画像 %> 
+        <%= f.file_field :image %> 
       </div> 
 
       <div class="field">
@@ -69,6 +69,16 @@
         <%= f.label :パスワード %><em>(再入力)</em><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>  
+
+      <div class="field-genre">
+        <%= f.label :役職 %>
+        <%= f.collection_select(:position_id, Position.all, :id, :name, {}, {class:"position-select"}) %>
+      </div> 
+
+      <div class="field">
+        <%= f.text_area :description, class:"question",placeholder: "自己紹介" %>
+      </div>
+
 
       <div class="actions">
         <%= f.submit "次へ進む" %>
