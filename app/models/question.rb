@@ -5,6 +5,17 @@ class Question < ApplicationRecord
 
   belongs_to :user
   has_many :answers, dependent: :destroy
+
+  def self.search(search)
+    if search != ""
+      Question.where('title LIKE(?) OR explanation LIKE(?)' , "%#{search}%", "%#{search}%" )
+    else
+      Question.includes(:user)
+    end
+  end
+
+  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
 end
