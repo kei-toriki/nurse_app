@@ -14,8 +14,6 @@
   padding-top: 10px;
   height: 500px;
   margin: auto;
-  border: black 1px solid;
-  background-color: white;
 }
 
 .question{
@@ -26,7 +24,6 @@
 
 .field{
   margin-top: 20px;
-  /* background-color: azure; */
 }
 
 .actions{

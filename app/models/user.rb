@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :answers
   has_one :introduction
   validates :nickname, presence: true
+
+  
 end

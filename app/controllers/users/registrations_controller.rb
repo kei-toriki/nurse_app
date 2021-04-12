@@ -13,12 +13,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new and return
     end
    session["devise.regist_data"] = {user: @user.attributes}
-   binding.pry
    session["devise.regist_data"][:user]["password"] = params[:user][:password]
-   binding.pry
    @introduction = @user.build_introduction
    render :new_introduction
   end
+
+  def create_introduction
+    @user = User.new(session["devise.regist_data"]["user"])
+    @introduction = Introduction.new(introduction_params)
+     unless @introduction.valid?
+       render :new_introduction and return
+     end
+    @user.build_introduction(@introduction.attributes)
+    if @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+    redirect_to root_path
+    end
+  end
+ 
+  private
+ 
+  def introduction_params
+    params.require(:introduction).permit(:position_id, :description)
+  end
+
+
   # GET /resource/sign_up
   # def new
   #   super

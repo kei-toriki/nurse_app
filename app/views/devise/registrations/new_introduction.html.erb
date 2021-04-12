@@ -1,0 +1,25 @@
+<body class="text-center">
+
+    <main class="form-signin">
+    <h2>自己紹介をしてみよう</h2>
+
+    <%= form_for @introduction do |f| %>
+      <%= render "devise/shared/error_messages", resource: @introduction %>
+
+      <div class="field-genre">
+        <%= f.label :役職 %>
+        <%= f.collection_select(:position_id, Position.all, :id, :name, {}, {class:"position-select"}) %>
+      </div> 
+
+      <div class="field">
+        <%= f.text_area :description, class:"question",placeholder: "自己紹介" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録する" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+    </main>
+  </body>
