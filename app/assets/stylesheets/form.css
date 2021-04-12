@@ -11,9 +11,11 @@
 .form-signin {
   width: 100%;
   /* max-width: 330px; */
-  padding: 30px;
+  padding-top: 10px;
   height: 500px;
   margin: auto;
+  border: black 1px solid;
+  background-color: white;
 }
 
 .question{
@@ -25,4 +27,8 @@
 .field{
   margin-top: 20px;
   /* background-color: azure; */
+}
+
+.actions{
+  margin-top: 10px;
 }
