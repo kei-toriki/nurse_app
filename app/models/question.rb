@@ -14,6 +14,8 @@ class Question < ApplicationRecord
     end
   end
 
+  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
 end
