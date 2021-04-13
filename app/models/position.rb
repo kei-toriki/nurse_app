@@ -16,6 +16,6 @@ class Position < ActiveHash::Base
 
   has_many :users
 
-  has_many :introductions
+  # has_many :introductions
 
   end
