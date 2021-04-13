@@ -9,10 +9,12 @@ class User < ApplicationRecord
   # has_one :introduction
   validates :nickname, presence: true
 
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :position
 
   validates :position_id, numericality: { other_than: 1 } 
+
   
 end
   

@@ -12,7 +12,10 @@
   width: 100%;
   /* max-width: 330px; */
   height: 500px;
+
   margin-top: auto;
+
+  margin: auto;
 }
 
 .question{

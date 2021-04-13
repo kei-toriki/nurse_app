@@ -42,6 +42,13 @@
 
     <%= form_for(@user, url: user_registration_path) do |f| %>
 
+
+      <div class="field">
+        <%= f.label :トップ画像 %>
+        <%= f.file_field :image %>
+      </div> 
+
+
       <div class="field">
         <%= f.label :ニックネーム %><br />
         <%= f.text_field :nickname, autofocus: true, autocomplete: "email" %>

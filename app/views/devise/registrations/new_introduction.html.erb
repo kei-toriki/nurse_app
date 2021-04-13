@@ -6,10 +6,12 @@
     <%= form_for @introduction do |f| %>
       <%= render "devise/shared/error_messages", resource: @introduction %>
 
+
       <div class="field">
         <%= f.label :トップ画像 %> 
         <%= f.file_field :image %> 
       </div> 
+
 
       <div class="field-genre">
         <%= f.label :役職 %>
