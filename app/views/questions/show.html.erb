@@ -6,14 +6,14 @@
   <div class="header-list">
   <% if user_signed_in? %>
     <div class="logout">
-      <%= link_to root_path do %>
+      <%= link_to user_path(current_user.id) do %>
         <% if current_user.image.attached? %>
           <%= image_tag current_user.image.variant(resize: '50x50'), class: 'user-image' %>
         <% else %>
           <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
         <% end %>
       <% end %>
-      <%= link_to current_user.nickname, root_path, class: "post" %>
+      <%= link_to current_user.nickname, user_path(current_user.id), class: "post" %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"post" %>
     </div>
   <% else %>
@@ -35,14 +35,16 @@
       <div class="question__name">
         <p class="detail__name">投稿者名</p>
         <div class="question__image">
-          <% if @question.user.image.attached? %>
-            <%= image_tag @question.user.image.variant(resize: '50x50'), class: 'user-image'  %>
-          <% else %>
-            <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
+          <%= link_to user_path(@question.user.id) do %>
+            <% if @question.user.image.attached? %>
+              <%= image_tag @question.user.image.variant(resize: '50x50'), class: 'user-image'  %>
+            <% else %>
+              <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
+            <% end %>
           <% end %>
         </div>
         <p class="detail__names">
-          <%= @question.user.nickname %>
+          <%= link_to @question.user.nickname, user_path(@question.user.id), class: 'brown' %>
         </p>
       </div>
       <div class="question__body">
@@ -84,14 +86,16 @@
         <div class="answer_info">
         <div class="question__name">
           <div class="question__image">
-            <% if answer.user.image.attached? %>
-              <%= image_tag answer.user.image.variant(resize: '50x50'), class: 'user-image2'  %>
-            <% else %>
-              <%= image_tag("noimage.png", :size => "50x50", class: 'user-image2') %>
+            <%= link_to user_path(answer.user.id) do %>
+              <% if answer.user.image.attached? %>
+                <%= image_tag answer.user.image.variant(resize: '50x50'), class: 'user-image2'  %>
+              <% else %>
+                <%= image_tag("noimage.png", :size => "50x50", class: 'user-image2') %>
+              <% end %>
             <% end %>
           </div>
           <p class="detail__names">
-            <%= answer.user.nickname %>
+            <%= link_to answer.user.nickname, user_path(answer.user.id), class: 'brown' %>
           </p>
           <span>さん</span>
         </div>
