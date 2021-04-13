@@ -1,0 +1,57 @@
+.mypage-image{
+  border-radius: 50%;
+  object-fit:cover;
+  width: 250px;
+  height: 250px;
+  margin-top: 30px;
+}
+
+.image{
+  text-align: center;
+}
+
+.page-name{
+  text-align: center;
+}
+
+.position-description{
+  width: 500px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.positions{
+  text-align: center;
+}
+
+.position{
+  color: brown;
+}
+
+.description-name{
+  text-align: center;
+  border: coral;
+  background-color: coral;
+  color: white;
+}
+
+.description{
+  font-size: 18px;
+  padding: 10px;
+}
+
+.descriptions{
+  border: tomato 2px solid;
+  margin-top: 30px;
+}
+
+.question-wrpper{
+  margin: 40px;
+  border-top: grey 2px solid;
+  padding-top: 20px;
+}
+
+.description_null{
+  font-size: 18px;
+  color: darkgray;
+}
