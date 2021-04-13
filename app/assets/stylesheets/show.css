@@ -94,7 +94,7 @@
 .answer_center2{
   font-size: 25px;
   color: white;
-  background-color: chocolate;
+  background-color: coral;
   border-radius: 10px;
   padding: 10px;
 }
@@ -110,4 +110,8 @@
 .answer_date_right{
   text-align: right;
   color: burlywood;
+}
+
+.brown{
+  color: brown;
 }

@@ -13,5 +13,9 @@ class Position < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
+
+  has_many :users
+
   has_many :introductions
+
   end

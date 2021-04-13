@@ -1,0 +1,103 @@
+<header>
+ <div class="header-flame">
+  <div class="header-logo">
+  <%= link_to "ナースの質問部屋", root_path, class:"header-logo" %>
+  </div>
+  
+  <div class="header-list">
+  <% if user_signed_in? %>
+    <div class="logout">
+      <%= link_to user_path(current_user.id) do %>
+        <% if current_user.image.attached? %>
+          <%= image_tag current_user.image.variant(resize: '50x50'), class: 'user-image' %>
+        <% else %>
+          <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
+        <% end %>
+      <% end %>
+      <%= link_to current_user.nickname, user_path(current_user.id), class: "post" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"post" %>
+    </div>
+  <% else %>
+    <div class="login">
+      <%= link_to "ログイン", new_user_session_path, class: "post" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+    </div>
+  <% end %>
+  </div>
+ </div>
+</header>
+
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <div class="introductios">
+        <div class="introductions">
+            <div class="image">
+              <% if @user.image.attached? %>
+                <%= image_tag @user.image.variant(resize: '300x300'), class: 'mypage-image' %>
+              <% else %>
+                <%= image_tag("noimage.png", :size => "300x300", class: 'mypage-image') %>
+              <% end %>
+              </div>
+            <h2 class="page-name">
+              <%= @user.nickname %>
+            </h2>
+            <div class="position-description">
+              <div class="positions">
+                <span class="position-name">お仕事</span>
+                <span class="position"><%= @user.position.name %></span>
+              </div>
+              <div class="descriptions">
+                <p class="description-name">自己紹介</p>
+                <% unless @user.description.length == 0 %>
+                  <p class="description"><%= @user.description %></p>
+                <% else %>
+                  <p class="description_null">自己紹介はありません。</p>
+                <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="question-wrpper">
+      <div class="answer_center">
+        <span class="answer_center2">↓今まで行った質問↓</span>
+      </div>
+      <% if @questions.length == 0 %>
+        <div class="answer_info">
+         <p class="description_null">まだ質問していません。</p>
+        </div>
+      <% else %>
+      <% @questions.each do |question| %>
+        <div class="answer_info">
+        <div class="question__name">
+          <div class="question__image">
+              <% if question.user.image.attached? %>
+                <%= image_tag question.user.image.variant(resize: '50x50'), class: 'user-image2'  %>
+              <% else %>
+                <%= image_tag("noimage.png", :size => "50x50", class: 'user-image2') %>
+              <% end %>
+          </div>
+          <p class="detail__names">
+            <%= question.user.nickname %>
+          </p>
+          <span>さん</span>
+        </div>
+        <div>
+          <%= question.explanation %>
+        </div>
+        <div class="answer_date_right">
+          <div class="answer_date">回答日時</div>
+            <div class="answer_date2">
+              <%= l question.created_at %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% end %>
+    </div>  
+  </div>
+</div>
+           
+      
