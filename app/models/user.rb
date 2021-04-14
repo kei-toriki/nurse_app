@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :questions
   has_many :answers
+  has_many :bests
   # has_one :introduction
   validates :nickname, presence: true
 

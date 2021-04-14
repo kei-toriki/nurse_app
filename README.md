@@ -13,6 +13,7 @@
 
 - has_many :questions
 - has_many :answers
+- has_many :bests
  
 ## questions テーブル
 
@@ -28,6 +29,7 @@
 
 - has_many :answers
 - belongs_to :user
+- has_one :bests
 
 
 ## answers テーブル
@@ -40,12 +42,20 @@
 
 - belongs_to :user
 - belongs_to :question
+- has_one :bests
 
 
-## introduction テーブル
+## bests テーブル
 
-| Column      | Type       | Options                        |
-| -------     | ---------- | ------------------------------ |
-| position    | integer    |                                |
-| description | text       |                                |
-| user        | references | optional: true                 |
+| Column    | Type       | Options                        |
+| -------   | ---------- | ------------------------------ |
+| user      | text       | null: false, foreign_key: true |
+| answer    | references | null: false, foreign_key: true |
+| question  | references | null: false, foreign_key: true |
+
+- belongs_to :user
+- belongs_to :question
+- belongs_to :answer
+
+
+

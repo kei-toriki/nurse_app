@@ -5,6 +5,7 @@ class Question < ApplicationRecord
 
   belongs_to :user
   has_many :answers, dependent: :destroy
+  has_one :best, dependent: :destroy
 
   def self.search(search)
     if search != ""
