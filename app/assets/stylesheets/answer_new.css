@@ -1,7 +1,7 @@
 .answer_message{
   border-bottom: brown 2px solid;
-  text-align: left;
-  width: 100%;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .answer_title{

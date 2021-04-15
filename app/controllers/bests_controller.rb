@@ -1,14 +1,16 @@
 class BestsController < ApplicationController
   def create
+    # @answer = Answer.find(params[:question_id])
+    # @question = Question.find(params[:answer_id])
     @best = Best.new(
       user_id: current_user.id, 
       question_id: params[:question_id],
       answer_id: params[:answer_id]
     )
-    # binding.pry
     # @best = Best.new(best_params)
-    @best.save
-    redirect_to root_path
+    if @best.save
+      redirect_to "/questions/#{@best.question_id}"
+    end
   end
 
 

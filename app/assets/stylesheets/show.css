@@ -108,10 +108,34 @@
 }
 
 .answer_date_right{
-  text-align: right;
+  margin-right: 0px;
+  margin-left: auto;
   color: burlywood;
 }
 
 .brown{
   color: brown;
 }
+
+.best_time{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.linked{
+  background-color: goldenrod;
+  color: aliceblue;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.best_answerd{
+  background-color: goldenrod;
+  color: aliceblue;
+  padding: 5px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
