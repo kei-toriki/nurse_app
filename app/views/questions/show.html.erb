@@ -69,7 +69,7 @@
             <% if user_signed_in? && current_user.id == @question.user_id %>
               <%= link_to "編集する", edit_question_path(@question.id) %>
               <%= link_to "削除する",  question_path(@question.id), method: :delete ,class: 'delete' %>
-            <% else %>
+            <% elsif @question.best.nil? %>
               <%= link_to "回答する", new_question_answer_path(@question.id), class:"answer_btn" %>
             <% end %>
           </div>
