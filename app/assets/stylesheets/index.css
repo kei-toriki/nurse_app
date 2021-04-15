@@ -50,6 +50,10 @@
   margin-top: 20px;
 }
 
+.question-list{
+  width: 100%;
+}
+
 .question-text{
   padding-bottom: 10px;
 }
