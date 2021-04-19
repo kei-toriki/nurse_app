@@ -7,6 +7,9 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_one :best, dependent: :destroy
 
+  has_many :question_tags
+  has_many :tags, through: :question_tags
+
   def self.search(search)
     if search != ""
       Question.where('title LIKE(?) OR explanation LIKE(?)' , "%#{search}%", "%#{search}%" )
