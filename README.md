@@ -30,7 +30,8 @@
 - has_many :answers
 - belongs_to :user
 - has_one :bests
-
+- has_many :question_tags
+- has_many :tags, through: :question_tags
 
 ## answers テーブル
 
@@ -44,18 +45,40 @@
 - belongs_to :question
 - has_one :bests
 
-
 ## bests テーブル
 
 | Column    | Type       | Options                        |
 | -------   | ---------- | ------------------------------ |
-| user      | text       | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
 | answer    | references | null: false, foreign_key: true |
 | question  | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :question
 - belongs_to :answer
+
+## tags テーブル
+
+| Column    | Type       | Options                        |
+| -------   | ---------- | ------------------------------ |
+| name      | string     | null: false, uniqueness: true  |
+
+- has_many :question_tags
+- has_many :questions, through: :question_tags
+
+## question_tags テーブル
+
+| Column    | Type       | Options                        |
+| -------   | ---------- | ------------------------------ |
+| question  | references | null: false, foreign_key: true |
+| tag       | references | null: false, foreign_key: true |
+
+- belongs_to :question
+- belongs_to :tag
+
+
+
+
 
 
 

@@ -94,6 +94,14 @@
   font-size: 19px;
   width: 500px;
   color: darkslategrey;
+  border-left: gray 2px solid;
+  padding-bottom: 0;
+  margin-left: 5px;
+}
+
+.texts{
+  padding: 10px 10px;
+  position: relative;
 }
 
 .question-title{
@@ -113,3 +121,18 @@
   background-color: coral;
   color: white;
 }
+
+.tag-list{
+  list-style: none;
+  text-align: left;
+  color: gray;
+}
+
+.detail__message3{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .tag{
+  margin: ;
+} */

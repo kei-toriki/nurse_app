@@ -1,5 +1,6 @@
 .inner{
   padding: 0 30px;
+  height: 100%;
 }
 
 .question__hedding{
@@ -56,7 +57,7 @@
 }
 
 .edit_show{
-  text-align: left;
+  text-align: right;
   color: cyan;
 }
 
@@ -138,4 +139,7 @@
   text-align: center;
 }
 
+.answer_btn2{
+  text-align: left;
+}
 
