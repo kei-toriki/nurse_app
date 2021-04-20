@@ -7,17 +7,18 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = QuestionsTag.new
+    @form = QuestionsTag.new
   end
 
   def create
-    @question = QuestionsTag.new(question_params)
-      if @question.save
+    @form = QuestionsTag.new(question_params)
+      if @form.create
         redirect_to root_path
       else
         render :new
       end
   end
+   
 
   def show
     @question = Question.find(params[:id])
@@ -25,13 +26,15 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = QuestionsTag.new
+    @question = current_user.questions.find(params[:id])
+    @form = QuestionsTag.new(question: @question)
   end
 
   def update
-    @question = QuestionsTag.new(question_params)
-    
-    if @question.save
+    @question = current_user.questions.find(params[:id])
+    @form = QuestionsTag.new(question_params, question: @question)
+    if @form.valid?
+      @form.save
       redirect_to root_path
     else
       render :edit
@@ -52,9 +55,9 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      
-      params.require(:questions_tag).permit(:title, :explanation, :genre_id, :name).merge(user_id: current_user.id)
+      params.require(:question).permit(:title, :explanation, :genre_id, :name).merge(user_id: current_user.id)
     end
+      
 
     def move_to_index
       @question = Question.find(params[:id])

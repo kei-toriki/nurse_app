@@ -2,7 +2,7 @@
    
     <main class="form-signin">
       <h2>質問を編集する</h2>
-      <%= form_with(model: @question, url: questions_path(:id), local: true, method: :putch) do |f| %>
+      <%= form_with model: @form, local: true do |f| %>
         <div class="field-genre">
           <%= f.label :ジャンル %>
           <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
@@ -27,4 +27,4 @@
       <% end %>
       <%= link_to "戻る", root_path %>
     </main>
-  </body>
+</body>
