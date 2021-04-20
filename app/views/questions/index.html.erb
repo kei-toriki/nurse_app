@@ -58,16 +58,25 @@
                 </h3>
                 <% end %>
                 <h3 class="question-text">
-                  <%= "#{question.explanation}".truncate(40) %>
+                  <div class="texts">
+                    <%= "#{question.explanation}".truncate(40) %>
+                  </div>
                 </h3>
                 <div class="question__detail2">
                   <div class="detail__title2">投稿日時</div>
                   <div class="detail__message3">
+                    <div class="tags">
+                      <div class="tag-list">
+                        <% question.tags.each do |tag| %>
+                          #<%=tag.name%>
+                        <%end%>
+                      </div>
+                    </div>
                     <%= l question.created_at %>
                   </div>
                 </div>
               <% end %>
-              <%# </div> %>
+              </div>
             </li>
         </ul>
     </div>

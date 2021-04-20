@@ -7,11 +7,11 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = QuestionsTag.new
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = QuestionsTag.new(question_params)
       if @question.save
         redirect_to root_path
       else
@@ -25,17 +25,19 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
+    @question = QuestionsTag.new
   end
 
   def update
-    @question = Question.find(params[:id])
-    if @question.update(question_params)
+    @question = QuestionsTag.new
+    
+    if @question.save
       redirect_to root_path
     else
       render :edit
     end
   end
+
 
   def destroy
     @question = Question.find(params[:id])
@@ -50,7 +52,8 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:title, :explanation, :genre_id).merge(user_id: current_user.id)
+      
+      params.require(:questions_tag).permit(:title, :explanation, :genre_id, :name).merge(user_id: current_user.id)
     end
 
     def move_to_index
@@ -60,3 +63,4 @@ class QuestionsController < ApplicationController
       end
     end
 end
+
