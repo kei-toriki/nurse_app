@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = QuestionsTag.new
+    @question = QuestionsTag.new(question_params)
     
     if @question.save
       redirect_to root_path
