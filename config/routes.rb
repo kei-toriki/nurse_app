@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   root to: "questions#index"
   resources :questions do
+    resources :likes, only: [:create, :destroy]
     resources :answers, only: [:new, :create] do
       resources :bests, only: :create  
     end

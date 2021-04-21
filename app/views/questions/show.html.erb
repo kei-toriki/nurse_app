@@ -82,8 +82,19 @@
               <%= link_to "編集する", edit_question_path(@question.id) %>
               <%= link_to "削除する",  question_path(@question.id), method: :delete ,class: 'delete' %>
             <% elsif @question.best.nil? %>
-              <div class="answer_btn2">
-                <%= link_to "回答する", new_question_answer_path(@question.id), class:"answer_btn" %>
+              <div class="answer_like">
+                <div class="answer_btn2">
+                  <%= link_to "回答する", new_question_answer_path(@question.id), class:"answer_btn" %>
+                </div>
+                <div class="likes">
+                  <% if current_user.liked_by?(@question) %>
+                    <%= link_to '共感！', question_like_path(@question.id, @question.likes.ids), method: :DELETE, class: 'like notlike' %>
+                    <span class="like_count"><%= @question.likes.count %></span>
+                  <% else %>
+                    <%= link_to '共感！', question_likes_path(@question.id), method: :POST, class: 'like goodlike' %>
+                    <span class="like_count"><%= @question.likes.count %></span>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           </div>

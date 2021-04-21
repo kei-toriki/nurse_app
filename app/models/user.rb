@@ -7,9 +7,12 @@ class User < ApplicationRecord
   has_many :questions
   has_many :answers
   has_many :bests
-  # has_one :introduction
+  has_many :likes
   validates :nickname, presence: true
 
+  def liked_by?(question_id)
+    likes.where(question_id: question_id).exists?
+  end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :position
