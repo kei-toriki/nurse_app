@@ -51,6 +51,8 @@ class QuestionsController < ApplicationController
   def search
     @questions = Question.search(params[:keyword])
     render :index
+
+    
   end
 
   private

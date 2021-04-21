@@ -1,0 +1,161 @@
+.info{
+  text-align: center;
+  color: blue;
+}
+
+.qindex{
+  width: 100%;
+}
+
+.index_header{
+  // width: 100vw;
+  background-image: image-url("3422893_s.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  position: relative;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.index_header::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+}
+
+
+.box{
+  // width: 100vw;
+  // height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  // position: absolute;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+}
+
+.info{
+  color: white;
+  font-size: 30px;
+}
+
+.newq{
+  font-size: 24px;
+  color: #000;
+  background-color: coral;
+  border-bottom: 5px solid brown;
+  padding: 5px;
+  color: white;
+  text-decoration:none !important;
+  border-radius: 20px;
+}
+
+.newq:hover {
+  margin-top: 3px;
+  color: white;
+  background: coral;
+  border-bottom: 2px solid brown;
+}
+
+.list{
+  list-style: none;
+  border: darksalmon 3px solid ;
+  // border-bottom: darksalmon 3px solid;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.question-list{
+  width: 100%;
+}
+
+.question-text{
+  padding-bottom: 10px;
+}
+
+.question-contents{
+  margin-top: 30px;
+}
+
+.title{
+  background-color: darksalmon;
+  margin-left: 40px;
+  color: azure;
+  border-radius: 10px;
+}
+
+.title-main{
+  text-align: center;
+}
+
+.question-info{
+  /* border: blue 2px solid; */
+  width: 100%;
+  margin-bottom: 10px;
+  color:brown
+}
+
+.question-genre{
+  font-size: 18px;
+}
+
+.question-text{
+  font-size: 19px;
+  width: 500px;
+  color: darkslategrey;
+  border-left: gray 2px solid;
+  padding-bottom: 0;
+  margin-left: 5px;
+}
+
+.texts{
+  padding: 10px 10px;
+  position: relative;
+}
+
+.question-title{
+  /* border-top: cornflowerblue 3px solid; */
+}
+
+.black{
+  color: black;
+}
+
+
+
+.tag-list{
+  list-style: none;
+  text-align: left;
+  color: gray;
+}
+
+.detail__message3{
+  display: flex;
+  justify-content: space-between;
+}
+
+.questions{
+  width: 100%;
+}
+/* .tag{
+  margin: ;
+} */
+
+.inners{
+  margin-right: 40px;
+}

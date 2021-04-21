@@ -1,84 +1,92 @@
 <header>
- <div class="header-flame">
-  <div class="header-logo">
-  <%= link_to "ナースの質問部屋", root_path, class:"header-logo" %>
-  </div>
-  
-  <div class="header-list">
-  <% if user_signed_in? %>
-    <div class="logout">
-      <%= link_to user_path(current_user.id) do %>
-        <% if current_user.image.attached? %>
-          <%= image_tag current_user.image.variant(resize: '50x50'), class: 'user-image' %>
-        <% else %>
-          <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
-        <% end %>
+  <div class="header-flame">
+    <div class="header-logos">
+    <%= link_to "ナースの質問部屋", root_path, class:"header-logo" %>
+    <div class="search">
+      <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form") do |form| %>
+        <%= form.text_field :keyword, placeholder: "質問を検索する", class: "search-input" %>
+        <%= form.submit "検索", class: "search-btn" %>
       <% end %>
-      <%= link_to current_user.nickname, user_path(current_user.id), class: "post" %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"post" %>
     </div>
-  <% else %>
-    <div class="login">
-      <%= link_to "ログイン", new_user_session_path, class: "post" %>
-      <%= link_to "新規登録", new_user_registration_path, class: "post" %>
     </div>
-  <% end %>
+    <div class="header-list">
+      <% if user_signed_in? %>
+        <div class="logout">
+          <%= link_to user_path(current_user.id) do %>
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image.variant(resize: '50x50'), class: 'user-image' %>
+            <% else %>
+              <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
+            <% end %>
+          <% end %>
+          <%= link_to current_user.nickname, user_path(current_user.id), class: "post" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"post" %>
+        </div>
+      <% else %>
+        <div class="login">
+          <%= link_to "ログイン", new_user_session_path, class: "post" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+        </div>
+      <% end %>
+    </div>
   </div>
- </div>
 </header>
 
-<main class="qindex">
-  <h2 class="info">ナースならではの悩みを共有しよう</h2>
-  <div class="new-question">
-    <%= link_to "質問はこちらから", new_question_path, class: "newq" %>
-  </div>
-  <div class="inner">
-    <div class='question-contents'>
+  <main class="qindex">
+    <div class="index_header">
+      <div class="box">
+        <h2 class="info">ナースならではの悩みを共有しよう!!</h2>
+        <div class="new-question">
+          <%= link_to "質問はこちらから", new_question_path, class: "newq" %>
+        </div>
+    </div>
+    </div>
+    <div class="inners">
+      <div class='question-contents'>
         <div class="title-main">
           <h2 class='title'>↓最近の質問↓</h2>
-          <div>
-            <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form") do |form| %>
-              <%= form.text_field :keyword, placeholder: "質問を検索する", class: "search-input" %>
-              <%= form.submit "検索", class: "search-btn" %>
-            <% end %>
-          </div>
         </div>
-        <ul class='question-lists'>
+        <div class="questions">
           <% @questions.each do |question| %>
-            <li class='list'>
-              <%# <div class='question-info'>  %>
-              <%= link_to question_path(question.id), class:"question-info" do %> 
-                <h3 class='question-title'>
-                  <span>質問-</span>
-                  <span class="black"><%= question.title %></span>
-                </h3>
-                <h3 class="question-genre">
-                  <span>ジャンル-</span> 
-                  <span class="black"><%= question.genre.name %></span>
-                </h3>
-                <% end %>
-                <h3 class="question-text">
-                  <div class="texts">
-                    <%= "#{question.explanation}".truncate(40) %>
-                  </div>
-                </h3>
-                <div class="question__detail2">
-                  <div class="detail__title2">投稿日時</div>
-                  <div class="detail__message3">
-                    <div class="tags">
-                      <div class="tag-list">
-                        <% question.tags.each do |tag| %>
-                          #<%=tag.name%>
-                        <%end%>
+            <ul class='question-lists'>
+              <li class='list'>
+                <div class='question-info'> 
+                  <%= link_to question_path(question.id), class:"question-info" do %> 
+                    <h3 class='question-title'>
+                      <span>質問-</span>
+                      <span class="black"><%= question.title %></span>
+                    </h3>
+                    <h3 class="question-genre">
+                      <span>ジャンル-</span> 
+                      <span class="black"><%= question.genre.name %></span>
+                    </h3>
+                  <% end %>
+                  <h3 class="question-text">
+                      <div class="texts">
+                        <%= "#{question.explanation}".truncate(40) %>
                       </div>
+                  </h3>
+                  <div class="question__detail2">
+                    <div class="detail__title2">投稿日時</div>
+                    <div class="detail__message3">
+                      <div class="tags">
+                        <div class="tag-list">
+                          <% question.tags.each do |tag| %>
+                            #<%=tag.name%>
+                          <%end%>
+                        </div>
+                      </div>
+                      <%= l question.created_at %>
                     </div>
-                    <%= l question.created_at %>
                   </div>
                 </div>
-              <% end %>
-              </div>
-            </li>
-        </ul>
-    </div>
-  </div>  
-</main>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>  
+  </main>
+            
+            
+                  
