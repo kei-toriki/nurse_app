@@ -39,7 +39,46 @@ password :
 
 
 # DEMO
-随時更新します。
+## TOPページ
+[![Image from Gyazo](https://i.gyazo.com/4a216f0503e1e75defb39f53222a3d68.jpg)](https://gyazo.com/4a216f0503e1e75defb39f53222a3d68)
+トップページではすぐに質問内容が一覧で表示されており、どの様なサイトかが分かるようにログイン時と同じ表示になっています。
+未ログイン時のユーザーでも一覧と詳細の確認を行うことができます。
+
+## 新規登録・ログイン
+[![Image from Gyazo](https://i.gyazo.com/18c543bc9a58f16e9949dd589ae18477.gif)](https://gyazo.com/18c543bc9a58f16e9949dd589ae18477)
+deviseを使用し新規登録、ログイン機能を実装しました。
+
+新規登録画面では基本医療者の使用となるため役職が必須項目となっております。
+
+そして新規登録が終了するとログインされ、すべての機能を使用することができるようになります。またヘッダー右上に登録した名前とアバターが表示されます。
+
+## 質問機能
+[![Image from Gyazo](https://i.gyazo.com/421ed3c8a90bf436f212ccf40201214c.gif)](https://gyazo.com/421ed3c8a90bf436f212ccf40201214c)
+
+一覧ページから質問記入ページに遷移し、質問を送信すると一覧ページにリダイレクトし、投稿内容が表示されます。
+
+また投稿の際にはジャンルが必須となっており、医療関連の質問となるように制約しています。
+
+またジャンルで選んだこと以外に情報を付け加えたい際にはタグ機能も作成したためそちらに記入します。
+
+## アンサー機能
+[![Image from Gyazo](https://i.gyazo.com/518cd149ce80f112a72b900d01f1b8b0.gif)](https://gyazo.com/518cd149ce80f112a72b900d01f1b8b0)
+
+質問の詳細ページから回答することができます。回答することで詳細ページに回答が表示されます。
+
+## ベストアンサー機能
+[![Image from Gyazo](https://i.gyazo.com/aa7d91b9764a4fba5a550c8548f899db.gif)](https://gyazo.com/aa7d91b9764a4fba5a550c8548f899db)
+
+質問者は集められた回答の中1つだけ、ベストアンサーを選びそれを表示させることができます。
+
+## 共感！機能
+[![Image from Gyazo](https://i.gyazo.com/03e5c220c7112dc4a64012e6e85cc2a5.gif)](https://gyazo.com/03e5c220c7112dc4a64012e6e85cc2a5)
+
+投稿に対して1人のユーザー1回共感ボタンをおすことができます。
+
+直感的に操作ができるようにJQueryを用いて非同期通信での仕様となっています。
+
+### ※その他編集や削除もできますがここでは割愛します。
 
 # 工夫したポイント
 ・トップページを投稿一覧画面とし、新規登録やログインをしていなくても質問内容や質問詳細が見れるようになっています。
@@ -52,10 +91,10 @@ password :
 
 # 使用技術
 ## サーバーサイド
-ruby, ruby on rails
+Ruby, Ruby on Rails
 
 ## フロントエンド
-HTML, CSS
+HTML, CSS, JavaScript, JQuery
 
 ## データベース
 MySQL SequelPro
@@ -96,7 +135,8 @@ VSCode
 - has_many :questions
 - has_many :answers
 - has_many :bests
- 
+ - has_many :likes
+
 ## questions テーブル
 
 | Column      | Type       | Options                        |
@@ -114,6 +154,7 @@ VSCode
 - has_one :bests
 - has_many :question_tags
 - has_many :tags, through: :question_tags
+- has_many :likes
 
 ## answers テーブル
 
@@ -123,6 +164,7 @@ VSCode
 | user      | references | null: false, foreign_key: true |
 | question  | references | null: false, foreign_key: true |
 
+### Association
 - belongs_to :user
 - belongs_to :question
 - has_one :bests
@@ -135,6 +177,7 @@ VSCode
 | answer    | references | null: false, foreign_key: true |
 | question  | references | null: false, foreign_key: true |
 
+### Association
 - belongs_to :user
 - belongs_to :question
 - belongs_to :answer
@@ -145,6 +188,7 @@ VSCode
 | -------   | ---------- | ------------------------------ |
 | name      | string     | null: false, uniqueness: true  |
 
+### Association
 - has_many :question_tags
 - has_many :questions, through: :question_tags
 
@@ -155,10 +199,19 @@ VSCode
 | question  | references | null: false, foreign_key: true |
 | tag       | references | null: false, foreign_key: true |
 
+### Association
 - belongs_to :question
 - belongs_to :tag
 
+## likes テーブル
+| Column    | Type       | Options                        |
+| -------   | ---------- | ------------------------------ |
+| user      | references | null: false, foreign_key: true |
+| question  | references | null: false, foreign_key: true |
 
+### Association
+- belongs_to :user
+- belongs_to :question
 
 
 
