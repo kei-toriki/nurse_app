@@ -136,7 +136,7 @@
             <%= answer.content %>
           </div>
           <div class="best_time">
-            <% if user_signed_in? && current_user.id == @question.user_id && answer.best.nil? %>
+            <% if user_signed_in? && current_user.id == @question.user_id && @question.best.nil? %>
               <div class="link">
               <%= link_to "ベストアンサーにする", question_answer_bests_path(@question.id, answer.id), class:"linked", method: :post %>
               </div>
