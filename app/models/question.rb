@@ -7,6 +7,7 @@ class Question < ApplicationRecord
   has_many :question_tags, dependent: :destroy
   has_many :tags, through: :question_tags
   
+  has_many :likes, dependent: :destroy
 
   def self.search(search)
     if search != ""

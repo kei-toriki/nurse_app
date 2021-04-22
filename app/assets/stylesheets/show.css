@@ -146,3 +146,38 @@
 .question-text{
   width: 100%;
 }
+
+.answer_like{
+  display: flex;
+  justify-content: space-between;
+}
+
+.likes{
+  margin: 3px 5px 0 0;
+}
+
+.like{
+  font-size: 20px;
+  text-decoration:none !important;
+}
+
+.goodlike{
+  color: grey;
+  border: grey 1px solid;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.notlike{
+  color: black;
+  background-color: khaki;
+  border: grey 1px solid;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.like_count{
+  color: black;
+  padding-left: 2px;
+  font-size: 20px;
+}

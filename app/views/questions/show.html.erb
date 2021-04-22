@@ -82,8 +82,15 @@
               <%= link_to "編集する", edit_question_path(@question.id) %>
               <%= link_to "削除する",  question_path(@question.id), method: :delete ,class: 'delete' %>
             <% elsif @question.best.nil? %>
-              <div class="answer_btn2">
-                <%= link_to "回答する", new_question_answer_path(@question.id), class:"answer_btn" %>
+              <div class="answer_like">
+                <div class="answer_btn2">
+                  <%= link_to "回答する", new_question_answer_path(@question.id), class:"answer_btn" %>
+                </div>
+                <div class="likes" >
+                  <div id="like_<%= @question.id %>">
+                    <%= render partial: 'likes/question', locals: { question: @question} %>
+                  </div>
+                </div>
               </div>
             <% end %>
           </div>
@@ -137,7 +144,5 @@
     </div>
   </div>
 </main>
-
-
 
 
