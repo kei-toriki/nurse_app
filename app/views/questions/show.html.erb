@@ -86,14 +86,10 @@
                 <div class="answer_btn2">
                   <%= link_to "回答する", new_question_answer_path(@question.id), class:"answer_btn" %>
                 </div>
-                <div class="likes">
-                  <% if current_user.liked_by?(@question) %>
-                    <%= link_to '共感！', question_like_path(@question.id, @question.likes.ids), method: :DELETE, class: 'like notlike' %>
-                    <span class="like_count"><%= @question.likes.count %></span>
-                  <% else %>
-                    <%= link_to '共感！', question_likes_path(@question.id), method: :POST, class: 'like goodlike' %>
-                    <span class="like_count"><%= @question.likes.count %></span>
-                  <% end %>
+                <div class="likes" >
+                  <div id="like_<%= @question.id %>">
+                    <%= render partial: 'likes/question', locals: { question: @question} %>
+                  </div>
                 </div>
               </div>
             <% end %>
@@ -148,7 +144,5 @@
     </div>
   </div>
 </main>
-
-
 
 
