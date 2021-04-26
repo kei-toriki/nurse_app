@@ -77,3 +77,5 @@ gem 'pry-rails'
 gem 'ransack'
 
 gem 'jquery-rails'
+
+gem "aws-sdk-s3", require: false
