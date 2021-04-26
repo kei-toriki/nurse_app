@@ -5,29 +5,29 @@
 またアプリケーション名の通り看護師がメインとしたQ&Aサイトとなっており、ログイン時に職種の入力が必要であること(看護師以外でも医療職であればログイン可能)や質問をする際にも医療に関するジャンル選択が必要となっています。
 
 # 本番環境
-https://nurse-app-1954.herokuapp.com/
+http://35.73.173.20/
 
 ## ログイン情報(テスト用)
 
 ### テスト1
 
-email :212121@gmail.com
+email: test1abc@gmail.com
 
-password :1234abc
+パスワード: 1234abc
+
 
 
 ### テスト2
 
-email :232323@gmail.com
+ユーザー名: test2abc@gmail.com
 
-password :1234abc
-
+パスワード: 1234abc
 
 ### basic認証
 
-user :
+user : nurse
 
-password :
+password :1954
 
 # 作成意図
 こちらはQ&Aサイトになっており、特徴的なのは看護師を始め医療職に特化したQ&Aサイトになっています。
@@ -40,7 +40,7 @@ password :
 
 # DEMO
 ## TOPページ
-[![Image from Gyazo](https://i.gyazo.com/4a216f0503e1e75defb39f53222a3d68.jpg)](https://gyazo.com/4a216f0503e1e75defb39f53222a3d68)
+[![Image from Gyazo](https://i.gyazo.com/ca8ec94eab07eb89b392c3bd0c51c477.jpg)](https://gyazo.com/ca8ec94eab07eb89b392c3bd0c51c477)
 トップページではすぐに質問内容が一覧で表示されており、どの様なサイトかが分かるようにログイン時と同じ表示になっています。
 未ログイン時のユーザーでも一覧と詳細の確認を行うことができます。
 
@@ -106,11 +106,14 @@ HTML, CSS, JavaScript, JQuery
 ## データベース
 MySQL SequelPro
 
-## 開発環境
-Docker
+## インフラ
+AWS(EC2,S3),Capistarano,Docker
 
-## 本番環境
-heroku
+## webサーバ(本番環境)
+nginx
+
+## webアプリケーション(本番環境)
+unicorn
 
 ## ソース管理
 GitHub, GitHubDesktop
