@@ -1,35 +1,5 @@
 <header>
-  <div class="header-flame">
-    <div class="header-logos">
-    <%= link_to "ナースの質問部屋", root_path, class:"header-logo" %>
-    <div class="search">
-      <%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.text_field :keyword, placeholder: "質問を検索する", class: "search-input" %>
-        <%= form.submit "検索", class: "search-btn" %>
-      <% end %>
-    </div>
-    </div>
-    <div class="header-list">
-      <% if user_signed_in? %>
-        <div class="logout">
-          <%= link_to user_path(current_user.id) do %>
-            <% if current_user.image.attached? %>
-              <%= image_tag current_user.image.variant(resize: '50x50'), class: 'user-image' %>
-            <% else %>
-              <%= image_tag("noimage.png", :size => "50x50", class: 'user-image') %>
-            <% end %>
-          <% end %>
-          <%= link_to current_user.nickname, user_path(current_user.id), class: "post" %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"post" %>
-        </div>
-      <% else %>
-        <div class="login">
-          <%= link_to "ログイン", new_user_session_path, class: "post" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <%= render partial: "header", locals: { question: @question} %>
 </header>
 
 <main class="main">
@@ -84,24 +54,18 @@
                   <%= link_to "編集する", edit_question_path(@question.id) %>
                   <%= link_to "削除する",  question_path(@question.id), method: :delete ,class: 'delete' %>
                 </div>
-                <div class="likes" >
-                  <div id="like_<%= @question.id %>">
-                    <%= render partial: 'likes/question', locals: { question: @question} %>
-                  </div>
-                </div>
-              </div>
             <% elsif @question.best.nil? %>
               <div class="answer_like">
                 <div class="answer_btn2">
                   <%= link_to "回答する", new_question_answer_path(@question.id), class:"answer_btn" %>
                 </div>
+            <% end %>
                 <div class="likes" >
                   <div id="like_<%= @question.id %>">
                     <%= render partial: 'likes/question', locals: { question: @question} %>
                   </div>
                 </div>
               </div>
-            <% end %>
           </div>
         </div>
       </div>

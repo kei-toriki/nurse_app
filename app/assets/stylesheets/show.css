@@ -150,6 +150,7 @@
 .answer_like{
   display: flex;
   justify-content:space-between;
+  height: 40px;
 }
 
 .likes{
@@ -187,6 +188,17 @@
   padding-top: 2px;
 }
 
+.no_logins{
+  margin-top: 10px;
+}
+
+.no_login{
+  color: black;
+  background-color: khaki;
+  border: grey 1px solid;
+  padding: 3px;
+  border-radius: 10px;
+}
 
 
 
