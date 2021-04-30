@@ -7,11 +7,15 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it 'nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
+      it 'nicknameとemail、passwordとpassword_confirmation,position_idが存在すれば登録できる' do
         expect(@user).to be_valid
       end
       it 'imageが空でも保存できること' do
         @user.image = nil
+        expect(@user).to be_valid
+      end
+      it 'descriptionが空でも保存できること' do
+        @user.description = nil
         expect(@user).to be_valid
       end
     end
@@ -50,6 +54,11 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = '00000'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password translation missing: ja.activerecord.errors.models.user.attributes.password.too_short")
+      end
+      it 'position_idが1では登録できない' do
+        @user.position_id = 1
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Position translation missing: ja.activerecord.errors.models.user.attributes.position_id.other_than")
       end
     end
   end
