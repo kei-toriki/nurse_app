@@ -9,6 +9,11 @@ class Question < ApplicationRecord
   
   has_many :likes, dependent: :destroy
 
+  validates :title, presence: true
+  validates :explanation, presence: true
+  validates :genre_id, numericality: { other_than: 1 } 
+
+
   def self.search(search)
     if search != ""
       Question.where('title LIKE(?) OR explanation LIKE(?)' , "%#{search}%", "%#{search}%" )
